@@ -1,0 +1,34 @@
+{
+  "name": "my-eshop",
+  "version": "1.0.0",
+  "description": "MERN E-Commerce",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/furqansdn/my-eshop.git"
+  },
+  "author": "Furqan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/furqansdn/my-eshop/issues"
+  },
+  "homepage": "https://github.com/furqansdn/my-eshop#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.6"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "i": "^0.3.6",
+    "nodemon": "^2.0.6"
+  }
+}
