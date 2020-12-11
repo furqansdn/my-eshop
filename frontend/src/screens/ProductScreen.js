@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
@@ -7,7 +7,15 @@ import { listProductDetails } from '../actions/productActions.js';
 import Rating from '../components/Rating';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Quantity from '../components/Quantity';
+
 const ProductScreen = ({ match }) => {
+  const [qty, setQty] = useState(0);
+
+  const onQtyChange = (value) => {
+    setQty(value);
+  };
+
   const dispatch = useDispatch();
 
   const { product, loading, error } = useSelector(
@@ -72,6 +80,14 @@ const ProductScreen = ({ match }) => {
                     </Col>
                   </Row>
                 </ListGroup.Item>
+
+                {product.countInStock > 0 && (
+                  <Quantity
+                    qty={qty}
+                    onValueChange={onQtyChange}
+                    max={product.countInStock}
+                  />
+                )}
                 <ListGroup.Item>
                   <Button
                     className='btn-block'
