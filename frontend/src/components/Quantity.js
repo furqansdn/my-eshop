@@ -17,8 +17,8 @@ const Quantity = ({ qty, onValueChange, max }) => {
   };
 
   const onClickDec = () => {
-    if (qty === 0) {
-      onValueChange(0);
+    if (qty === 1) {
+      onValueChange(1);
     } else {
       onValueChange(qty - 1);
     }
